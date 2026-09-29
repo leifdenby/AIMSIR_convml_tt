@@ -11,4 +11,4 @@ dependencies:
   - torchvision>=0.4.0
   - cpuonly
   - pip:
-    - convml-tt>=0.12.0
+    - convml-tt>=0.14.3
