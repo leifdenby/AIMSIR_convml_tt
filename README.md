@@ -1,6 +1,6 @@
 # SENSE CDT (University of Leeds) triplet-trainer course
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/leifdenby/SENSE_convml_tt/HEAD) [![SENSE_convml-tt](https://github.com/leifdenby/SENSE_convml_tt/actions/workflows/python-package-conda.yml/badge.svg)](https://github.com/leifdenby/SENSE_convml_tt/actions/workflows/python-package-conda.yml)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/leifdenby/AIMSIR_convml_tt/HEAD) [![tests](https://github.com/leifdenby/AIMSIR_convml_tt/actions/workflows/tests.yml/badge.svg)](https://github.com/leifdenby/AIMSIR_convml_tt/actions/workflows/tests.yml)
 
 This repository contains material to work with the neural network model used in
 [L Denby
@@ -15,15 +15,18 @@ Exercises are stored as jupyter notebooks in [notebooks/](notebooks/)
 
 ## Getting started
 
-To work through the exercises you will need two things:
+You can either run the exercises in your browser on
+[mybinder](https://mybinder.org/v2/gh/leifdenby/AIMSIR_convml_tt/HEAD)
+(nothing to install, but slower and your work isn't saved), or on your own
+computer. For the latter you will need two things:
 
 1) A copy of the exercises (the repository you're looking at right now!)
 
-2) A copy of the `convml-tt` python module installed into a conda
-environment
+2) [uv](https://docs.astral.sh/uv/), which installs `convml-tt` and all the
+   other packages needed for the exercises
 
-If you are on Windows and are having trouble some more detailed notes are
-given [here](README.windows.md).
+If you are on Windows some more detailed notes are given
+[here](README.windows.md).
 
 ### 1. Downloading the exercises
 
@@ -31,40 +34,40 @@ Choose a suitable parent directory (for example your desktop, `~/Desktop`)
 and clone this repository so that you have a local copy of the exercises
 
 ```bash
-git clone https://github.com/leifdenby/SENSE_convml_tt
-cd SENSE_convml_tt
+git clone https://github.com/leifdenby/AIMSIR_convml_tt
+cd AIMSIR_convml_tt
 ```
 
 In the execises you will work with a dataset and trained model that comes
 bundled with `convml-tt` and instructions for how to download these is
 contained within the exercises.
 
-### 2. Install `convml-tt` and its dependencies with `conda`
+### 2. Install `convml-tt` and its dependencies with `uv`
 
-Instructions on how to create a conda environment and install `convml-tt`
-into it are
-[here](https://github.com/leifdenby/convml_tt#getting-started)). But it
-essentially boils down to three steps: 1) install
-[conda](https://docs.conda.io/en/latest/miniconda.html), 2) install
-[pytorch](https://pytorch.org/get-started/locally/) using conda for GPU or CPU
-use (depending on whether you have a GPU) and 3) install `convml-tt` with `pip.`
+First [install uv](https://docs.astral.sh/uv/getting-started/installation/),
+for example on linux and macOS with
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+Then, from inside the folder with the exercises, create an environment with
+everything installed. Choose the pytorch build to use with an "extra": `cpu`
+if you don't have an NVIDIA GPU (this is also the right choice on macOS, where
+Apple Silicon GPUs are still used), otherwise the one matching your CUDA
+version (`gpu-cu118`, `gpu-cu121` or `gpu-cu124`):
+
+```bash
+uv sync --extra cpu
+```
 
 ## Exercises
 
-Once `convml-tt` is installed you can activate the `convml-tt` conda
-environment:
+From inside the folder with the exercises (e.g. `~/Desktop/AIMSIR_convml_tt`)
+start up a jupyter session and get going with the exercises:
 
 ```bash
-conda activate convml-tt
-```
-
-Move to the path where you checked out the exercises (e.g.
-`~/Desktop/SENSE_convml_tt`)
-
-And start up a jupyter session and get going with the exercises:
-
-```bash
-jupyter notebook
+uv run jupyter notebook
 ```
 
 The exercises are broken down as follows:
