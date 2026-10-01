@@ -72,8 +72,6 @@ uv run jupyter notebook
 
 The exercises are broken down as follows:
 
-1130 - 1230:
-
 1) **Dimensionality reduction**: Examine how the neural
    network has used the embedding space; are all 100 dimensions necessary? Can
    we identify what features the neural network has learnt by comparing tiles
@@ -83,8 +81,6 @@ The exercises are broken down as follows:
    clustering methods to study the extent to which the neural network has
    formed distinct clusters in the embedding space.
    notebook: [1b_Exploring_embedding_space_with_clustering_methods.ipynb](notebooks/1b_Exploring_embedding_space_with_clustering_methods.ipynb)
-
-1330 - 1500:
 
 3) **Using your own input data**: either by generating synthetic input tiles or
    using your own data source you will work with the pre-trained model to study
